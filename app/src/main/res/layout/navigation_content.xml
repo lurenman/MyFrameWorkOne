@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.lurenman.myframeworkone.MainActivity">
+    <include
+        android:id="@+id/tab_bar"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        layout="@layout/market_fragment_titlebar" />
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_below="@id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="45.5dp">
+
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#e6e6e6"
+        />
+    <RadioGroup
+        android:id="@+id/Rg_group"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            style="@style/MainRadioButton"
+            android:text="新闻"
+            android:textSize="12sp"
+            android:drawableTop="@drawable/market_bottom_home_selector"
+            />
+
+        <RadioButton
+            style="@style/MainRadioButton"
+            android:text="游戏"
+            android:drawableTop="@drawable/market_bottom_game_selector"
+            />
+
+        <RadioButton
+            style="@style/MainRadioButton"
+            android:text="软件"
+            android:drawableTop="@drawable/market_bottom_soft_selector"
+            />
+        <RadioButton
+            style="@style/MainRadioButton"
+            android:text="电子书"
+            android:drawableTop="@drawable/market_bottom_book_selector"
+            />
+        <RadioButton
+            style="@style/MainRadioButton"
+            android:text="管理"
+            android:drawableTop="@drawable/market_bottom_manager_selector"
+            />
+    </RadioGroup>
+
+
+</RelativeLayout>

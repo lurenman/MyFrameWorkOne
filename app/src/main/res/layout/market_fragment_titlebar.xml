@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="45dp"
+    android:orientation="horizontal"
+    android:background="@color/colorPrimary">
+    <ImageView
+        android:id="@+id/iv_user_center"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dip"
+        android:focusableInTouchMode="false"
+        android:scaleType="fitCenter"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:src="@drawable/ic_person_center"/>
+
+    <LinearLayout
+        android:id="@+id/title_barsearch"
+        android:layout_width="0dp"
+        android:layout_weight="6"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5.0dip"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="5.0dip"
+        android:background="@drawable/topbar_search_shape"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:scaleType="centerInside"
+            android:src="@drawable/url_search_bar"/>
+        <EditText
+            android:id="@+id/edit_search"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerInParent="true"
+            android:layout_height="fill_parent"
+            android:background="@drawable/backgroud_semicircle_white"
+            android:gravity="center_vertical"
+            android:hint="搜索新闻"
+            android:imeOptions="actionSearch"
+            android:selectAllOnFocus="true"
+            android:editable="false"
+            android:focusable="false"
+            android:textSize="14sp"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_down"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="5dp"
+        android:layout_marginRight="5dip"
+        android:focusableInTouchMode="false"
+        android:scaleType="centerInside"
+        android:src="@drawable/topbar_download_selector"/>
+
+
+</LinearLayout>

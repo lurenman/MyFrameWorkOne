@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textBlack">#3c3c3c</color>
+    <color name="bule_overlay">#660D92DD</color>
+    <color name="white">#FFFFFF</color>
+    <color name="divider">#dddddd</color>
+    <color name="selector_grey">#DDDDDD</color>
+    <color name="news_tag_border_blue">#3091D8</color>
+</resources>
