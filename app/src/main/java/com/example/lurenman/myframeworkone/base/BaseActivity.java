@@ -33,7 +33,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends SwipeBackAct
         super.onCreate(savedInstanceState);
         mContext = this;
         this.savedInstanceState = savedInstanceState;
-        Env.initSystemBar(this, R.color.colorPrimary);//继承SwipeBackActivity的activity默认状态栏透明色
+        Env.initSystemBar(this, R.color.colorPrimary);
         //发现下面设不设置都无所谓的
         SwipeBackLayout mSwipeBackLayout = getSwipeBackLayout();
         int flag4 = SwipeBackLayout.EDGE_LEFT;    //全部

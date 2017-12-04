@@ -7,7 +7,6 @@
     tools:context="com.example.lurenman.myframeworkone.MainActivity">
     <include
         android:id="@+id/tab_bar"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignParentTop="true"
@@ -24,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="#e6e6e6"
+        android:layout_below="@id/fl_content"
         />
     <RadioGroup
         android:id="@+id/Rg_group"

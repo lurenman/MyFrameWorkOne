@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.lurenman.myframeworkone.MyFrameApp;
 import com.example.lurenman.myframeworkone.R;
@@ -21,7 +20,6 @@ import com.example.lurenman.myframeworkone.module.news.activity.NewsWebViewActiv
 import com.example.lurenman.myframeworkone.module.news.adapter.RecommendAdapter;
 import com.example.lurenman.myframeworkone.module.news.presenter.NewsRecommendPresenter;
 import com.example.lurenman.myframeworkone.module.news.viewmodel.INewsRecommendView;
-
 import java.util.ArrayList;
 import java.util.List;
 
