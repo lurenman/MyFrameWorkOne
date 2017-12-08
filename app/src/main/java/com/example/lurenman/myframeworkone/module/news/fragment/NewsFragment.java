@@ -50,13 +50,14 @@ public class NewsFragment extends BaseFragment{
     @Override
     protected void initViews(View rootView) {
         magicIndicator = (MagicIndicator) rootView.findViewById(R.id.magic_indicator);
-        mViewPager = (ViewPager) rootView.findViewById(R.id.vp_viewpager);
+        mViewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
     }
 
     @Override
     protected void initVariables() {
         mTitle= new String[]{"推荐", "娱乐", "视频", "直播", "图片", "段子", "游戏", "精华", "关注"};
-        mFragmentAdapter=new FragmentAdapter(getActivity().getSupportFragmentManager());
+      //  mFragmentAdapter=new FragmentAdapter(getActivity().getSupportFragmentManager());
+        mFragmentAdapter=new FragmentAdapter(this.getChildFragmentManager());
         mViewPager.setAdapter(mFragmentAdapter);
     }
 

@@ -43,7 +43,7 @@ public class SoftwareFragment extends BaseFragment {
         for (int i = 0; i < 10; i++) {
             mTitle[i] = "title" + i;
         }
-        mAdapter = new FragmentAdapter(getActivity().getSupportFragmentManager());
+        mAdapter = new FragmentAdapter(this.getChildFragmentManager());//解决了那个viewPager重名的bug
     }
 
     @Override
