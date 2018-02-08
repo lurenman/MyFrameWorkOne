@@ -3,6 +3,7 @@ package com.example.lurenman.myframeworkone.module.news.presenter;
 import android.util.Log;
 
 import com.example.lurenman.myframeworkone.base.BasePresenter;
+import com.example.lurenman.myframeworkone.model.entities.NetWorkClass;
 import com.example.lurenman.myframeworkone.model.entities.RefreshRecommendEntity;
 import com.example.lurenman.myframeworkone.module.news.viewmodel.INewsRecommendView;
 
@@ -41,5 +42,23 @@ public class NewsRecommendPresenter extends BasePresenter<INewsRecommendView> {
                 mView.onGetSuccess(entity, state);
             }
         });
+        //测试缓存用的
+/*        rxjavaRequestApi(mAPIService.getFirstBlog(), new Subscriber<NetWorkClass>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(NetWorkClass netWorkClass) {
+                        Log.e(TAG, "onNext: "+netWorkClass.toString() );
+                    }
+                }
+        );*/
     }
 }

@@ -3,6 +3,7 @@ package com.example.lurenman.myframeworkone.base;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,12 @@ import butterknife.ButterKnife;
 public abstract class BaseFragment<T extends BasePresenter> extends LazyLoadFragment {
     protected T mPresenter;
     private View rootView;
-    protected Activity mActivity;
+    protected FragmentActivity mActivity;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mActivity = (Activity) context;
+        mActivity = (FragmentActivity) context;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.lurenman.myframeworkone.model.api;
 
 import com.example.lurenman.myframeworkone.model.entities.HzDataClass;
+import com.example.lurenman.myframeworkone.model.entities.NetWorkClass;
 import com.example.lurenman.myframeworkone.model.entities.RecommendClass;
 import com.example.lurenman.myframeworkone.model.entities.RefreshRecommendEntity;
 import com.example.lurenman.myframeworkone.model.rqentities.rqHzClass;
@@ -51,6 +52,8 @@ public interface BaseAPIService
     //获取推荐数据刷新接口
     @POST("ModelWeb/AppModel/RefreshHomePage")
     Observable<RefreshRecommendEntity> getRefreshRecommended(@Query("pageIndex") String pageIndex, @Query("PageSize") String PageSize);
-
-
+    //测试缓存
+    @GET("app.php?m=souguapp&c=appusers&a=network")
+        //这里的{id} 表示是一个变量
+    Observable<NetWorkClass> getFirstBlog(/** 这里的id表示的是上面的{id} */);
 }

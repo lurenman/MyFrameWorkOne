@@ -20,6 +20,8 @@ import com.example.lurenman.myframeworkone.module.news.activity.NewsWebViewActiv
 import com.example.lurenman.myframeworkone.module.news.adapter.RecommendAdapter;
 import com.example.lurenman.myframeworkone.module.news.presenter.NewsRecommendPresenter;
 import com.example.lurenman.myframeworkone.module.news.viewmodel.INewsRecommendView;
+import com.example.lurenman.myframeworkone.utils.NetWorkUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +85,7 @@ public class RecommendedFragment extends BaseFragment<NewsRecommendPresenter> im
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 RefreshRecommendEntity.DataBean adapterItem = (RefreshRecommendEntity.DataBean) adapter.getItem(position);
-                Intent intent = new Intent(getActivity(), NewsWebViewActivity.class);
+                Intent intent = new Intent(mActivity, NewsWebViewActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("webViewUrl", Constant.HTTPURL_NEWDETAIL +adapterItem.getFID());
                 intent.putExtras(bundle);
@@ -97,12 +99,13 @@ public class RecommendedFragment extends BaseFragment<NewsRecommendPresenter> im
         //第一看到的时候调用刷新功能
         mSwipeRefreshLayout.setRefreshing(true);//这个东西第一次就是显示用的
         // mPresenter.getNetData();
-        referesh();
+       // referesh();
+        mPresenter.getNetData(NewsRecommendPresenter.REFFESH);
     }
 
     private void referesh() {
         //逻辑层请求数据
-       // mRecommendAdapter.setEnableLoadMore(false);//这里的作用是防止下拉刷新的时候还可以上拉加载
+        mRecommendAdapter.setEnableLoadMore(false);//这里的作用是防止下拉刷新的时候还可以上拉加载
         mPresenter.getNetData(NewsRecommendPresenter.REFFESH);
     }
 
@@ -130,8 +133,16 @@ public class RecommendedFragment extends BaseFragment<NewsRecommendPresenter> im
                     }
                 }
                 mRecommendAdapter.setNewData(mDataLists);
-               // mRecommendAdapter.setEnableLoadMore(true);//恢复加载更多功能
+                if (mDataLists.size() <mPresenter.pageSize) {
+                    //第一页如果不够一页就不显示没有更多数据布局
+                    mRecommendAdapter.loadMoreEnd(true);
+                    Toast.makeText(MyFrameApp.mContext, "服务器数据返回少于5条", Toast.LENGTH_SHORT).show();
+                } else {
+                    //mRecommendAdapter.loadMoreComplete();
+                }
+                mRecommendAdapter.setEnableLoadMore(true);//恢复加载更多功能
                 mSwipeRefreshLayout.setRefreshing(false);
+                Log.e(TAG, "onGetSuccessREFFESH: --------------------");
                 break;
             //加载更多的状态
             case NewsRecommendPresenter.LOAD:
@@ -159,6 +170,7 @@ public class RecommendedFragment extends BaseFragment<NewsRecommendPresenter> im
                         Toast.makeText(MyFrameApp.mContext, "服务器返回异常", Toast.LENGTH_SHORT).show();
                     }
                 }
+                Log.e(TAG, "onGetSuccessLOAD: ---------------------");
                 break;
             default:
                 break;
@@ -170,5 +182,7 @@ public class RecommendedFragment extends BaseFragment<NewsRecommendPresenter> im
         Log.e(TAG, "onError: " + e.getMessage());
         mSwipeRefreshLayout.setRefreshing(false);
         mRecommendAdapter.setEnableLoadMore(true);//恢复加载更多功能
+        //没有网络的时候这块走
+        Log.e(TAG, "onError: ----------------------");
     }
 }

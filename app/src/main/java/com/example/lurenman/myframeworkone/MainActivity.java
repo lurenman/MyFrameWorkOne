@@ -1,5 +1,6 @@
 package com.example.lurenman.myframeworkone;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -25,6 +26,8 @@ import com.example.lurenman.myframeworkone.utils.Env;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import pub.devrel.easypermissions.EasyPermissions;
 
 public class MainActivity extends AppCompatActivity {
     private List<BaseFragment> mFragments;

@@ -1,7 +1,11 @@
 package com.example.lurenman.myframeworkone.base;
 
+import android.widget.Toast;
+
+import com.example.lurenman.myframeworkone.MyFrameApp;
 import com.example.lurenman.myframeworkone.model.api.BaseAPIService;
 import com.example.lurenman.myframeworkone.model.api.DAL;
+import com.example.lurenman.myframeworkone.utils.NetWorkUtils;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -39,6 +43,12 @@ public class BasePresenter<V> {
       注意 .subscribeOn(Schedulers.io()) */
 
     public void rxjavaRequestApi(Observable observable, Subscriber subscriber) {
+        //
+        if (!NetWorkUtils.isNetworkAvailable(MyFrameApp.mContext)) {
+            //网络不可用弹出提示
+            Toast.makeText(MyFrameApp.mContext, "网络不可用", Toast.LENGTH_SHORT).show();
+           // return;
+        }
         if (mCompositeSubscription == null) {
             mCompositeSubscription = new CompositeSubscription();
         }
